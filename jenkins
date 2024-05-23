@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Git') {
+            steps{
+                git branch: 'master', url:https://github.com/harshadhoni/my.git 
+            }
+        }
+        stage('shell') {
+            steps{
+                bat 'bash shell.sh'
+            }
+        }
+    }
+}
